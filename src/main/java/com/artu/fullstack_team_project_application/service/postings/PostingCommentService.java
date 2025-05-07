@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.Set;
 
 public interface PostingCommentService {
-    public PostingComment save(Posting post, String content, User user);
+    public PostingComment save(PostingComment postingComment);
     public PostingComment delete(Integer commentId);
 
     // 게시물 해당 댓글

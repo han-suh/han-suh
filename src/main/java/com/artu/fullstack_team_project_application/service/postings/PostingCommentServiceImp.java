@@ -20,18 +20,9 @@ public class PostingCommentServiceImp implements PostingCommentService{
     private final PostingCommentsRepository postingCommentsRepository;
 
     @Override
-    public PostingComment save(Posting post, String content, User user) {
-        if (post != null && content != null && user != null) {
-            PostingComment postingComment = new PostingComment();
-            postingComment.setPost(post);
-            postingComment.setUser(user);
-            postingComment.setContents(content);
-            postingComment.setCreatedAt(Instant.now());
-            postingComment.setIsUsed(true);
+    @Transactional
+    public PostingComment save(PostingComment postingComment) {
             return postingCommentsRepository.save(postingComment);
-        }else {
-            throw new IllegalArgumentException("댓글 불가");
-        }
     }
 
     @Override

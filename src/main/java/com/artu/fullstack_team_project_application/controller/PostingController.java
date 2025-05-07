@@ -22,7 +22,7 @@ import java.util.Set;
 @RestController
 //@Controller
 @RequestMapping("/api/posting")
-@CrossOrigin(origins = "http://localhost:4775", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @AllArgsConstructor
 public class PostingController {
     private final PostingService postingService;

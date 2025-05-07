@@ -29,7 +29,6 @@ public class JwtLoginFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
 
-        System.out.println("ㅏㅏㅏㅏㅏㅏㅏ$%^*$*#^$%#*&(&*(*$%^$%^$%$#: JwtLoginFilter extends OncePerRequestFilter은 매번 실행되지 ");
 
         /* ㅡㅡㅡㅡㅡ  doFilterInternal에서 해야 할 작업의 순서
             1. 요청 헤더에서 JWT 추출
@@ -62,6 +61,8 @@ public class JwtLoginFilter extends OncePerRequestFilter {
                             userDetails.getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(authToken); // securityContext에 저장 끝
                     // 여기까지 하면 config에서 먹힘
+                    System.out.println("ㅏㅏㅏㅏㅏㅏㅏ$%^*$*#^$%#*&(&*(*$%^$%^$%$#: JwtLoginFilter extends OncePerRequestFilter은 매번 실행되지 ");
+
                 }
             }
         }

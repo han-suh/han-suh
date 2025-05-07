@@ -11,17 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class PostingCommentsDto {
-    private Integer commentId;
     private String contents;
-    private User user;
-    private Posting posting;
-    private String createdAt;
-
-    // PostingComment 객체를 받는 생성자 추가
-    public PostingCommentsDto(PostingComment postingComment) {
-        this.commentId = postingComment.getCommentId();
-        this.contents = postingComment.getContents();
-        this.user = postingComment.getUser();
-        this.posting = postingComment.getPost();
-    }
+    private Integer postId;
+    private String userId;
 }

@@ -21,20 +21,25 @@ import java.time.Instant;
 @Table(name = "posting_comments")
 public class PostingComment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id", nullable = false)
     private Integer commentId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     @JsonIgnoreProperties({"password", "userBirth", "gender", "createdAt", "isUsed", "dropoutAt", "events", "hibernateLazyInitializer", "handler"})
 //    @JsonBackReference
     @ToString.Exclude
     private User user;
+    @Column(name = "user_id")
+    private String userId;
+    @Column(name = "post_id")
+    private Integer postId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "post_id", nullable = false)
+    @JoinColumn(name = "post_id",insertable = false, updatable = false)
     @JsonBackReference
     @ToString.Exclude
     private Posting post;
@@ -49,6 +54,11 @@ public class PostingComment {
 
     @ColumnDefault("1")
     @Column(name = "is_used")
-    private Boolean isUsed;
+    private Boolean isUsed=true;
+
+    @ColumnDefault("1")
+    @Column(name = "is_deleted")
+    private Boolean isDeleted=false;
+
 
 }
