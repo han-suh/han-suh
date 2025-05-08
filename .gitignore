@@ -1,6 +1,7 @@
-src/main/resources/application-deploy.yaml
-src/main/resources/application-dev_db.yaml
-
+src/main/resources/env.properties
+#src/main/resources/application-deploy.yaml
+#src/main/resources/application-dev_db.yaml
+#git rm --cached -f src/main/resources/env.properties
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar

@@ -18,10 +18,11 @@ public class MainController {
 
     @GetMapping("/")
     public String index(HttpSession session) {
-        session.getAttribute("user"); // getAttribute는 Object를 반환함
+//        session.getAttribute("user"); // getAttribute는 Object를 반환함
         // 형변환 안 하면 session.user.id처럼 필드 접근 못함. Object 타입은 필드나 메서드에 직접 접근할 수 없음.
         // Thymeleaf는 내부에서 자동으로 형변환하고 객체를 분석함.
-        return "fragments/widget/widget"; // 홈 화면
+//        return "fragments/widget/widget"; // 홈 화면
+        return "forward:index.html";
     }
 }
 

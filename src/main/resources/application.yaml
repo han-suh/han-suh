@@ -2,15 +2,11 @@ spring:
   application:
     name: fullstack_team_project_application
   profiles:
-    include: dev_db
-#    include: deploy
+#    include: dev_db
+    include: deploy_db
 
 # 이미지 업로드 경로 설정:
 img:
   upload:
     path: ${user.dir}/spring_mybatis/src/main/resources/static/img
 
-# 로그 레벨 설정:
-logging:
-  level:
-    org.hibernate.orm.jdbc.bind: trace

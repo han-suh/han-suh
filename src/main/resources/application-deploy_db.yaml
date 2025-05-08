@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: ${mysql.url}
+    username: ${mysql.user}
+    password: ${mysql.pw}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 80

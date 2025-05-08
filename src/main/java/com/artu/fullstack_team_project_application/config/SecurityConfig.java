@@ -34,6 +34,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(
                                         "/",
+                                        "/vite.svg",
+                                        "index.html",
+                                        "/assets/**",
                                         "/favicon.ico",
                                         "/event/**",
                                         "/api/events/**",
