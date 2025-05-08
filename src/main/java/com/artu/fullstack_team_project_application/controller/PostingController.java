@@ -39,6 +39,14 @@ public class PostingController {
 //
 //        return "/posting/findAll";
 //    }
+    @GetMapping("/{postId}/read.do")
+    public ResponseEntity<Posting> read(@PathVariable Integer postId) {
+        Posting posting=postingService.findByPostId(postId);
+        if (posting==null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(posting);
+    }
 
     @GetMapping("/{userId}/userpage.do")
     public ResponseEntity<Object> userPage(@PathVariable String userId) {

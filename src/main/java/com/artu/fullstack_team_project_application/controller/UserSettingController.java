@@ -17,6 +17,8 @@ import java.util.Optional;
 //@RequestMapping("/api/posting/{userId}")
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+
 public class UserSettingController {
     private final UserSettingService userSettingService;
     private final UserService userService;
