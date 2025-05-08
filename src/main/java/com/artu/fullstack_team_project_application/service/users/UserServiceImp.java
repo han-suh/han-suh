@@ -148,14 +148,14 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void registerFollow(String followerId, String followeeId) {
-        User follower = userRepository.findById(followerId).orElseThrow();
-        User followee = userRepository.findById(followeeId).orElseThrow();
+//        User follower = userRepository.findById(followerId).orElseThrow();
+//        User followee = userRepository.findById(followeeId).orElseThrow();
 
         UserFollow userFollow = new UserFollow();
         userFollow.setFollowerId(followerId);
         userFollow.setFolloweeId(followerId);
-        userFollow.setFollowers(follower);
-        userFollow.setFollowees(followee);
+        //userFollow.setFollowers(follower);
+        //userFollow.setFollowees(followee);
         userFollow.setFollowedAt(Instant.now());
         userFollow.setIsUsed(true);
         userFollowRepository.save(userFollow);

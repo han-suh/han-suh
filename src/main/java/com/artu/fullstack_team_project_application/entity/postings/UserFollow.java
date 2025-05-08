@@ -17,7 +17,7 @@ import java.time.Instant;
 @Setter
 @Entity
 @ToString
-@SQLDelete(sql = "UPDATE user_follow SET is_used = true WHERE followee_id = ? AND follower_id = ?")
+@SQLDelete(sql = "UPDATE user_follow SET is_used = false WHERE followee_id = ? AND follower_id = ?")
 @Where(clause = "is_used = true")
 @Table(name = "user_follow")
 @IdClass(UserFollowId.class)
@@ -37,7 +37,7 @@ public class UserFollow {
     //@MapsId("followeeId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "follower_id", nullable = false)
+    @JoinColumn(name = "follower_id",insertable = false, updatable = false)
     @JsonIgnoreProperties({"password", "userBirth", "gender", "createdAt", "isUsed", "dropoutAt", "events", "hibernateLazyInitializer", "handler"})
     private User followers;
 //    @JsonIgnore
@@ -47,7 +47,7 @@ public class UserFollow {
     // @MapsId("followerId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "followee_id", nullable = false)
+    @JoinColumn(name = "followee_id",insertable = false, updatable = false)
     @JsonIgnoreProperties({"password", "userBirth", "gender", "createdAt", "isUsed", "dropoutAt", "events", "hibernateLazyInitializer", "handler"})
     private User followees;
 //    @JsonIgnore

@@ -23,7 +23,7 @@ import java.util.Optional;
 @RestController // SPA이고, 그래서 jwt를 로컬저장소에 넣으므로, 앞으로 상태만 보낼거니까. RestController로 구현
 @RequestMapping("/user")
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:5173/"})
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class UserRestController {
 
     private final JwtUtil jwtUtil;

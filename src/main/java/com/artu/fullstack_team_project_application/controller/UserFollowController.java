@@ -14,7 +14,7 @@ import java.util.*;
 //@Controller
 @RestController
 @RequestMapping("/api/posting/{userId}")
-@CrossOrigin(origins = "http://localhost:4775", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @AllArgsConstructor
 public class UserFollowController {
     private final UserService userService;
@@ -101,9 +101,10 @@ public class UserFollowController {
     public ResponseEntity<String> userFollowRegister(
             @RequestBody Map<String, String> request
     ) {
+        System.out.println(request);
         String followerId = request.get("followerId");
         String followeeId = request.get("followeeId");
-        userService.registerFollow(followeeId, followerId);
+        userService.registerFollow(followerId,followeeId);
         return ResponseEntity.ok("Success");
     }
 
@@ -111,10 +112,11 @@ public class UserFollowController {
     public ResponseEntity<String> userFollowerDelete(
             @RequestBody Map<String, String> body
     ) {
+        System.out.println(body);
         String followerId = body.get("followerId");
         String followeeId = body.get("followeeId");
 
-        userService.removeFollow(followeeId, followerId);
+        userService.removeFollow( followerId,followeeId);
         return ResponseEntity.ok("Success");
     }
 
